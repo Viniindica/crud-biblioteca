@@ -30,35 +30,7 @@ public class BibliotecaController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
-    @GetMapping("/titulo/{titulo}")
-    public ResponseEntity<BibliotecaModel> getLivroByTitulo(@PathVariable String titulo) {
-        return bibliotecaRepository.findByTitulo(titulo)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/autor/{autor}")
-    public ResponseEntity<BibliotecaModel> getLivroByAutor(@PathVariable String autor) {
-        return bibliotecaRepository.findByAutor(autor)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/isbn/{isbn}")
-    public ResponseEntity<BibliotecaModel> getLivroByIsbn(@PathVariable String isbn) {
-        return bibliotecaRepository.findByIsbn(isbn)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/ano/{anoPublicacao}")
-    public ResponseEntity<BibliotecaModel> getLivroByAnoPublicacao(@PathVariable String anoPublicacao) {
-        return bibliotecaRepository.findByAnoPublicacao(anoPublicacao)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
+    
     @PatchMapping("/update/{id}")
     public ResponseEntity<BibliotecaModel> updateLivro(@PathVariable Integer id, @RequestBody BibliotecaModel livro) {
         return bibliotecaRepository.findById(id)
